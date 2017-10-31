@@ -1,0 +1,29 @@
+<h2>Jobs</h2>
+
+<% @jobs.each do |job| %>
+    <%= job.id %>.
+    <%= job.name %>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th>Origin</th>
+                <th>Destination</th>
+                <th>Containers</th>
+                <th>Cost</th>
+                <th>Boat</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td><%= job.description %></td>
+            <td><%= job.origin %></td>
+            <td><%= job.destination %></td>
+            <td><%= job.containers %></td>
+            <td><%= job.cost %></td>
+        </tr>
+            </tbody>
+                    </table>
+           
+<% end  %>
