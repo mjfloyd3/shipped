@@ -1,14 +1,10 @@
-class JobsController < ApplicationController
-
-
-        @jobs = Job.all
-        class BoatsController < ApplicationController
+class BoatsController < ApplicationController
   before_action :set_boat, only: [:show, :edit, :update, :destroy]
 
   # GET /boats
   # GET /boats.json
   def index
-    @jobs = Job.all
+    @boats = Boat.all
   end
 
   # GET /boats/1
@@ -18,7 +14,7 @@ class JobsController < ApplicationController
 
   # GET /boats/new
   def new
-    @job = Job.new
+    @boat = Boat.new
   end
 
   # GET /boats/1/edit
@@ -28,12 +24,12 @@ class JobsController < ApplicationController
   # POST /boats
   # POST /boats.json
   def create
-    @job = Job.new(boat_params)
+    @boat = Boat.new(boat_params)
 
     respond_to do |format|
-      if @job.save
-        format.html { redirect_to @job, notice: 'Job was successfully created.' }
-        format.json { render :show, status: :created, location: @job}
+      if @boat.save
+        format.html { redirect_to @boat, notice: 'Boat was successfully created.' }
+        format.json { render :show, status: :created, location: @boat }
       else
         format.html { render :new }
         format.json { render json: @boat.errors, status: :unprocessable_entity }
@@ -46,8 +42,8 @@ class JobsController < ApplicationController
   def update
     respond_to do |format|
       if @boat.update(boat_params)
-        format.html { redirect_to @job, notice: 'Job was successfully updated.' }
-        format.json { render :show, status: :ok, location: @job }
+        format.html { redirect_to @boat, notice: 'Boat was successfully updated.' }
+        format.json { render :show, status: :ok, location: @boat }
       else
         format.html { render :edit }
         format.json { render json: @boat.errors, status: :unprocessable_entity }
@@ -58,24 +54,21 @@ class JobsController < ApplicationController
   # DELETE /boats/1
   # DELETE /boats/1.json
   def destroy
-    @job.destroy
+    @boat.destroy
     respond_to do |format|
-      format.html { redirect_to boats_url, notice: 'Job was successfully destroyed.' }
+      format.html { redirect_to boats_url, notice: 'Boat was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_job
-      @boat = Job.find(params[:id])
+    def set_boat
+      @boat = Boat.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def job_params
-      params.require(:job).permit(:description, :origin, :destination, :cost, :containers)
+    def boat_params
+      params.require(:boat).permit(:name, :containers, :location)
     end
-end
-
-end
 end
