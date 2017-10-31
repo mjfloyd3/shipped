@@ -1,6 +1,5 @@
-require 'test_helper'
-
 class BoatsControllerTest < ActionDispatch::IntegrationTest
+
   setup do
     @boat = boats(:one)
   end
