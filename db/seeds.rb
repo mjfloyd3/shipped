@@ -5,3 +5,23 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+
+Boat.create([
+  {name: "SS Santa Maria", containers: 10, location: "Portugal"},
+  {name: "SS Arizona", containers: 20, location: "New York"},
+  {name: "SS Bismark", containers: 30, location: "Germany"},
+  {name: "SS Essex", containers: 15, location: "England"}
+  ])
+
+
+
+Location.create([
+  {name: "New York"},
+  {name: "England"},
+  {name: "China"},
+  {name: "Spain"},
+  {name: "Brazil"},
+  {name: "South Africa"}
+  ])
