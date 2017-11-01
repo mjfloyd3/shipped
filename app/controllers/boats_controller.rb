@@ -14,7 +14,7 @@ class BoatsController < ApplicationController
 
   # GET /boats/new
   def new
-    @boat = Boat.new
+    @boat = current_user.boats.build
   end
 
   # GET /boats/1/edit
@@ -24,7 +24,7 @@ class BoatsController < ApplicationController
   # POST /boats
   # POST /boats.json
   def create
-    @boat = Boat.new(boat_params)
+    @boat = current_user.boats.build(boat_params)
 
     respond_to do |format|
       if @boat.save
