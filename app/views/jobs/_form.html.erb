@@ -1,4 +1,4 @@
-<%= form_with(model: jobs, local: true) do |form| %>
+<%= form_with(model: job, local: true) do |form| %>
 
 
   <div class="field">
@@ -8,7 +8,7 @@
 
   <div class="field">
     <%= form.label :containers %>
-    <%= form.number_field :containers, id: :boat_containers %>
+    <%= form.number_field :containers, id: :job_containers %>
   </div>
 
   <div class="field" >

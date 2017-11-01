@@ -9,6 +9,21 @@
   </head>
 
   <body>
-    <%= yield %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+<ul class="nav">
+	<% if user_signed_in? %>
+		<li><%= link_to 'Sign Out', { :action=>"destroy", :controller=>"devise/sessions" }, method: :delete %></li>
+		<% else %>
+
+    <li><%= link_to "Register", new_user_registration_path %></li>
+    <li><%= link_to "Log In", new_user_session_path %></li>
+    <% end %>
+</ul>x
+</nav>
+
+
+            <%= yield %>
   </body>
 </html>
+
