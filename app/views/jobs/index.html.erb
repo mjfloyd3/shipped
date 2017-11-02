@@ -13,6 +13,7 @@
                 <th>Containers</th>
                 <th>Cost</th>
                 <th>Boat</th>
+                <th>Assigned</th>
             </tr>
         </thead>
         <tbody>
@@ -22,11 +23,12 @@
             <td><%= job.destination %></td>
             <td><%= job.containers %></td>
             <td><%= job.cost %></td>
+            <td>%= job.boat.name %></td>
         </tr>
             </tbody>
                     </table>
 
-           
+
 <% end  %>
 
 <%= link_to 'New Job', new_job_path %>

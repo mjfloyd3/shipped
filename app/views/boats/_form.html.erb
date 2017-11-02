@@ -1,4 +1,4 @@
-<%= form_with(model: boat, local: true) do |form| %>
+<%= form_with(model: boat, local: true)do |form| %>
   <% if boat.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(boat.errors.count, "error") %> prohibited this boat from being saved:</h2>
@@ -22,8 +22,13 @@
   </div>
 
   <div class="field" >
-    <%= form.label :Destination %>
+    <%= form.label :Locat %>
     <%= form.collection_select :location_id, Location.all, :id, :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image, id: :boat_image %>
   </div>
 
   <div class="actions">

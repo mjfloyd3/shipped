@@ -1,60 +1,64 @@
 class JobsController < ApplicationController
 	before_action :authenticate_user!
+	before_action :set_job, only: [:show, :update, :destroy, :edit]
+	def index
+		@jobs = Job.all
+	end
 
-    def index
-        @jobs = Job.all
-    end
+  def show
+  end
 
-    def show
-    end
-
-    def new
-    	job = Job.new 
-    end
+  def new
+  @job = Job.new
+  end
 
 	def edit
-        @job = Job.find(params[:id])
-    end
+		# @job = Job.find(params[:id])
+	end
 
-    def create
-    @boat = Job.new(boat_params)
-
-    respond_to do |format|
-      if @job.save
-        format.html { redirect_to @job, notice: 'Job was successfully created.' }
-        format.json { render :show, status: :created, location: @job }
+  def create
+		@job = Job.new(job_params)
+		@job.user = current_user
+		respond_to do |format|
+			if @job.save
+				format.html { redirect_to @job, notice: 'Job was successfully created.' }
       else
         format.html { render :new }
-        format.json { render json: @boat.errors, status: :unprocessable_entity }
-      end
-    end
+			end
+		end
+  end
 
-    def update
-        respond_to do |format|
-      if @job.update(job_params)
-        format.html { redirect_to @job, notice: 'Job was successfully updated.' }
-        format.json { render :show, status: :ok, location: @job }
-      else
-        format.html { render :edit }
-      end
+  def update
+		respond_to do |format|
+			if @job.update(job_params)
+				format.html {redirect_to @job, notice: 'Job was successfully updated.'}
+				format.json { render :show, status: :ok, location: @job }
+			else
+				format.html { render :edit }
+			end
     end
   end
 
-    def destroy
-        Job.delete(params[:id])
-        redirect_to url_for(:controller => :jobs, :action => :index)
-    end
+  def destroy
+		@job.destroy if @job.id == session[:job_id]
+		session[:job_id] = nil
+		respond_to do |format|
+      format.html { redirect_to boats }
+		end
+  end
 
 
-    private
+	# Provide a list of the boats  assinged to the job
+	def assign
+		@job = Job.find(params[:id])
+	end
 
-    def set_job
+  private
+		def set_job
       @job = Job.find(params[:id])
-    end
+		end
 
     def job_params
-       params.require(:job).permit(:description, :origin, :destination, :cost) 
+       params.require(:job).permit(:name, :description, :origin, :destination, :cost, :containers, :boat)
     end
 end
-end
-

@@ -1,0 +1,38 @@
+<h1><%= @boat.name %>'s Job</h1>
+
+<% if @jobs.length > 0 %>
+  <%= form_tag(job_remove_boat_path(@boat)) do %>
+  <table>
+    <thead>
+      <tr>
+        <th>Course</th>
+        <th>Remove?</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% for job in @jobs do %>
+        <tr>
+          <td><%= job.origin_id %></td>
+          <td><%= job.destination_id %></td>
+          <td><%= check_box_tag "jobs[]", job.id %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+
+  <%= submit_tag 'Remove checked Jobs' %>
+  <% end %>
+
+
+  <h2>Assign Job</h2>
+  <% if @boat.jobs.count < Job.count then %>
+    <%= form_tag(job_add_boat_path(@boat)) do %>
+      <%= select_tag(:job, options_from_collection_for_select(@boat.unenrolled_jobs, :id, :description)) %>
+    <%= submit_tag 'Assign' %>
+  <% end %>
+  <% else %>
+    <p><%= @boat.name %> CANNOT BE ASSIGNED .</p> <% end %>
+  <% end %>
+  <p><%=link_to "Back", @boat %></p>
