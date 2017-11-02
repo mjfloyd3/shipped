@@ -1,9 +1,9 @@
 <%= form_with(model: job, local: true) do |form| %>
 
-
+<div id="description"
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :boat_name %>
+    <%= form.label :description %>
+    <%= form.text_field :description, id: :job_description %></div>
   </div>
 
   <div class="field">
@@ -11,6 +11,7 @@
     <%= form.number_field :containers, id: :job_containers %>
   </div>
 
+<div id="toandfrom">
   <div class="field" >
     <%= form.label :Origin %>
     <%= form.collection_select :location_id, Location.all, :id, :name %>
@@ -20,6 +21,7 @@
     <%= form.label :Destination %>
     <%= form.collection_select :location_id, Location.all, :id, :name %>
   </div>
+</div>
 
   <div class="field" >
     <%= form.label :cost %>

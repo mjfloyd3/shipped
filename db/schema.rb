@@ -18,8 +18,10 @@ ActiveRecord::Schema.define(version: 20171031184137) do
     t.string "location"
     t.integer "location_id"
     t.integer "user_id"
+    t.integer "job_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["job_id"], name: "index_boats_on_job_id"
     t.index ["location_id"], name: "index_boats_on_location_id"
     t.index ["user_id"], name: "index_boats_on_user_id"
   end
@@ -50,8 +52,6 @@ ActiveRecord::Schema.define(version: 20171031184137) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "password"
     t.string "boat"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

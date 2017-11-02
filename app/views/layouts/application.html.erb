@@ -4,26 +4,35 @@
     <title>Shipped</title>
     <%= csrf_meta_tags %>
 
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Merriweather');
+    @import url('https://fonts.googleapis.com/css?family=Heebo');
+    </style>
+
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+
+    <div class="header_container"><h1>Rails: Shipped</h1></div>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-<ul class="nav">
-	<% if user_signed_in? %>
-		<li><%= link_to 'Sign Out', { :action=>"destroy", :controller=>"devise/sessions" }, method: :delete %></li>
-		<% else %>
+<div class="mainnav">
+  <%= link_to "Jobs", jobs_path %>
+  <%= link_to "Boats", boats_path %>
+</div>
 
+  <div class="usernav"><% if user_signed_in? %>
+    <li><%= link_to 'Sign Out', { :action=>"destroy", :controller=>"devise/sessions" }, method: :delete %></li>
+    <% else %>
     <li><%= link_to "Register", new_user_registration_path %></li>
-    <li><%= link_to "Log In", new_user_session_path %></li>
+    <li><%= link_to "Log In", new_user_session_path %></li></ul>
     <% end %>
-</ul>x
-</nav>
+  </div>
 
-
-            <%= yield %>
+<%= yield %>
   </body>
 </html>
 

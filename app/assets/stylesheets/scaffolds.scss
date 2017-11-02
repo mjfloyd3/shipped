@@ -5,12 +5,21 @@ body {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
-}
+  background-image: url("cargo.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: fixed; 
+  }
 
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+}
+
+#new {
+  margin: auto;
+  width: 100px;
 }
 
 pre {
@@ -19,25 +28,76 @@ pre {
   font-size: 11px;
 }
 
+
+.mainnav {
+  margin: auto;
+  text-align: center;
+}
+
+.mainnav a:hover {
+  background-color: SteelBlue;
+}
+
+#boatshow {
+  font-family: "Heebo", arial;
+  background-color: #B8424E;
+  border: 3px solid SteelBlue;
+  margin: auto;
+  width: 30%;
+  text-align: center;
+  padding-bottom: 5px;
+}
+
+p {
+  font-family: "Heebo";
+}
+
 a {
-  color: #000;
+  color: #fff;
+  text-decoration: none;
+  display: inline-block;
+  border-width: 1px;
+  border-style: solid;
+  padding: 5px 15px 5px 15px;
+  background-color: #9A8290;
+  font-family: "Heebo";
+ 
 
   &:visited {
-    color: #666;
+    color: #fff;
   }
 
   &:hover {
     color: #fff;
-    background-color: #000;
+    background-color: #B7A3A8;
   }
 }
 
+table {
+  font-family: "Heebo";
+  background-color: #B8424E;
+  border-style: solid;
+  border-width: 3px;
+  border-color: SteelBlue;
+  margin: auto;
+}
+
 th {
-  padding-bottom: 5px;
+
+  font-family: "Heebo";
+  color: #CF9F47;
+  font-size: 20px;
+  padding: 10px;
 }
 
 td {
-  padding: 0 5px 7px;
+  padding: 10px 5px 5px 10px;
+  font-family: "Heebo";
+  color: #fff;
+}
+
+tbody {
+  font-family: "Heebo";
 }
 
 div {
@@ -66,7 +126,6 @@ div {
   h2 {
     text-align: left;
     font-weight: bold;
-    padding: 5px 5px 5px 15px;
     font-size: 12px;
     margin: -7px -7px 0;
     background-color: #c00;
@@ -75,10 +134,58 @@ div {
 
   ul li {
     font-size: 12px;
-    list-style: square;
+    display: inline-block;
   }
 }
 
 label {
   display: block;
+}
+
+form {
+  font-family: "Heebo";
+  background-color: #CF9F47;
+  width: 30%;
+  border-width: 3px solid;
+  border-style: solid;
+  margin: auto;
+  padding: 10px;
+}
+
+#toandfrom {
+  text-align: center;
+}
+
+#toandfrom .field {
+  display: inline-block;
+}
+
+.field {
+  margin-top: 10px;
+  text-align: center;
+  padding: 0px;
+}
+
+.actions {
+  text-align: center;
+}
+
+.actions input {
+  background-color: SteelBlue;
+  border-style: none;
+  color: #fff;
+}
+
+.actions input:hover {
+
+}
+
+#sharedlinks {
+  color: blue;
+}
+
+input {
+  border-style: solid;
+  border-width: 1px;
+  padding: 10px;
 }

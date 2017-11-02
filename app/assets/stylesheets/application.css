@@ -13,3 +13,27 @@
  *= require_tree .
  *= require_self
  */
+
+
+h1 {
+	font-size: 40px;
+	text-align: center;
+	font-family: 'Merriweather', serif;
+	color: #B8424E;
+}
+
+.header_container {
+	border-width: 2px;
+	border-style: solid;
+	border-color: SteelBlue;
+	background-color: rgba(255, 255, 255, 0.8);
+	width: 50%;
+	margin: auto;
+}
+
+h2 {
+	font-family: "Heebo";
+	font-size: 30px;
+	text-align: center;
+	color: #fff;
+}

@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Boats</h1>
+<h2>Boats</h2>
 
 <table>
   <thead>
@@ -24,8 +24,10 @@
       </tr>
     <% end %>
   </tbody>
+
 </table>
 
 <br>
+<div id="new"><%= link_to 'New Boat', new_boat_path %></div>
 
-<%= link_to 'New Boat', new_boat_path %>
+
