@@ -2,11 +2,12 @@
 
 <% @jobs.each do |job| %>
     <%= job.id %>.
-    <%= job.name %>
+
 
     <table class="table">
         <thead>
             <tr>
+                <th>Name</th>
                 <th>Description</th>
                 <th>Origin</th>
                 <th>Destination</th>
@@ -18,12 +19,13 @@
         </thead>
         <tbody>
             <tr>
+            <td><%= job.name %></td>
             <td><%= job.description %></td>
             <td><%= job.origin %></td>
             <td><%= job.destination %></td>
             <td><%= job.containers %></td>
             <td><%= job.cost %></td>
-            <td>%= job.boat.name %></td>
+            <td>%= job.boats.name %></td>
         </tr>
             </tbody>
                     </table>

@@ -5,17 +5,17 @@ class Boat < ApplicationRecord
   # validate name is unique
   validates :name, :uniqueness => true
 
-	belongs_to :user, required: false
-	has_many :locations
-
   # a boat can be in many jobs, a job can have many boats
   has_and_belongs_to_many :jobs
 
-  #  Check if boat is alredy assigned to a job
+	belongs_to :user, required: false
+	has_many :locations
+
+  #  Check if boat is alredy assigned to a specific job
   def assigned_in?(job)
     self.jobs.include?(job)
   end
-
+  # check the jobs the boat is not assigned to
   def unassigned_jobs
     Job.all - self.jobs
   end

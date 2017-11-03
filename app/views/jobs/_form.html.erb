@@ -1,5 +1,9 @@
 <%= form_with(model: job, local: true) do |form| %>
 
+  <div class="field">
+    <%= form.label :Name %>
+    <%= form.text_field :name, id: :job_name %>
+  </div>
 
   <div class="field">
     <%= form.label :Description %>

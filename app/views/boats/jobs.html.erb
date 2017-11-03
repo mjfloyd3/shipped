@@ -1,20 +1,20 @@
 <h1><%= @boat.name %>'s Job</h1>
 
-<% if @jobs.length > 0 %>
+<% if @boat.jobs.count > 0 %>
   <%= form_tag(job_remove_boat_path(@boat)) do %>
   <table>
     <thead>
       <tr>
-        <th>Course</th>
+        <th>Job</th>
         <th>Remove?</th>
       </tr>
     </thead>
 
     <tbody>
-      <% for job in @jobs do %>
+      <% for job in @boat.jobs do %>
         <tr>
-          <td><%= job.origin_id %></td>
-          <td><%= job.destination_id %></td>
+          <td><%= job.origin %></td>
+          <td><%= job.destination %></td>
           <td><%= check_box_tag "jobs[]", job.id %></td>
         </tr>
       <% end %>
@@ -24,15 +24,19 @@
 
   <%= submit_tag 'Remove checked Jobs' %>
   <% end %>
-
+<% else %>
+  <p>Not assinged to a job</p>
+<% end %>
 
   <h2>Assign Job</h2>
+
   <% if @boat.jobs.count < Job.count then %>
     <%= form_tag(job_add_boat_path(@boat)) do %>
-      <%= select_tag(:job, options_from_collection_for_select(@boat.unenrolled_jobs, :id, :description)) %>
-    <%= submit_tag 'Assign' %>
-  <% end %>
+      <%= select_tag(:job, options_from_collection_for_select(@boat.unassigned_jobs, :id, :name)) %>
+      <%= submit_tag 'Assign' %>
+    <% end %>
   <% else %>
-    <p><%= @boat.name %> CANNOT BE ASSIGNED .</p> <% end %>
+    <p><%= @boat.name %> CANNOT BE ASSIGNED .</p>
   <% end %>
+
   <p><%=link_to "Back", @boat %></p>

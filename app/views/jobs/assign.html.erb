@@ -1,0 +1,21 @@
+<h1>Assign For</h1>
+
+<% if @job.boats.count > 0 %>
+  <table>
+    <tr>
+      <th>Boat</th>
+    </tr>
+
+  <tbody>
+    <% @job.boats.each do |boat| %>
+    <tr>
+      <td><%=link_to boat.name, boat%></td>
+    </tr>
+  <% end %>
+  </tbody>
+  <% else %>
+    <p>No boat are Assigned.</p>
+  <% end %>
+  </table>
+
+  <p><%link_to "Back", @job %></p>
