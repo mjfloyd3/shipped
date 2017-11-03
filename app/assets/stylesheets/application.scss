@@ -13,5 +13,36 @@
  *= require_tree .
  *= require_self
  */
-@import "bootstrap-sprockets";
-@import "bootstrap";
+
+h1 {
+	font-size: 3.9vw;
+	text-align: center;
+	font-family: 'Source Sans Pro', serif;
+	color: #B8424E;
+}
+
+.header_container {
+	border-width: 15px;
+	border-style: solid;
+	border-color: SteelBlue;
+	background-color: rgba(255, 255, 255, 0.8);
+	width: 30%;
+	margin: auto;
+}
+
+#h2container {
+	border: solid 3px #B8424E;
+	background-color: rgba(255, 255, 255, 0.8);
+	width: 150px;
+	text-align: center;
+	padding: 3px 0px 3px 0px;
+
+}
+
+h2 {
+	font-family: "Source Sans Pro";
+	font-size: 2.0vw;
+	color: SteelBlue;
+	text-transform: bold;
+	margin: 0;
+}

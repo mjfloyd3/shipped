@@ -18,3 +18,8 @@ Location.create([
   {name: "Brazil"},
   {name: "South Africa"}
   ])
+
+Job.create ([
+  {description: "Pick up at open and deliver same day or else", origin: "New York", destination: "England", cost: "60", containers: "40", boat: "SS Santa Maria" }])
+
+
