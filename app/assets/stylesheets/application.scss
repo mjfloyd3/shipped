@@ -14,7 +14,6 @@
  *= require_self
  */
 
-
 h1 {
 	font-size: 3.9vw;
 	text-align: center;
@@ -47,3 +46,7 @@ h2 {
 	text-transform: bold;
 	margin: 0;
 }
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+

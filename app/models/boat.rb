@@ -5,12 +5,6 @@ class Boat < ApplicationRecord
   # validate name is unique
   validates :name, :uniqueness => true
 
-  has_many :jobs
-  
-  belongs_to :user, required: false
-  has_many :locations
-
-
   # a boat can be in many jobs, a job can have many boats
   has_and_belongs_to_many :jobs
 

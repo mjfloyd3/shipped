@@ -1,17 +1,13 @@
-<div class="field">
+<%= form_with(model: job, local: true) do |form| %>
+
+  <div class="field">
     <%= form.label :Name %>
     <%= form.text_field :name, id: :job_name %>
   </div>
 
 
-<%= form_with(model: job, local: true) do |form| %>
-
 <div id="description"
   <div class="field">
-
-    <%= form.label :description %>
-    <%= form.text_field :description, id: :job_description %></div>
-
     <%= form.label :Description %>
     <%= form.text_field :description, id: :job_description %>
 
@@ -34,7 +30,6 @@
   </div>
 </div>
 
-
   <div class="field" >
     <%= form.label :Cost %>
     <%= form.number_field :cost %>
@@ -43,6 +38,4 @@
     <%= form.submit %>
   </div>
 <% end %>
-
-
 

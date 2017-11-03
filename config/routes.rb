@@ -12,6 +12,8 @@ Rails.application.routes.draw do
       get :jobs
       post :job_add
       post :job_remove
+      patch :start
+
     end
   end
 
