@@ -19,8 +19,11 @@ ActiveRecord::Schema.define(version: 20171101205057) do
     t.integer "started_at"
     t.integer "location_id"
     t.integer "user_id"
+
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+
     t.string "image_file_name"
     t.string "image_content_type"
     t.integer "image_file_size"

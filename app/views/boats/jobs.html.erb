@@ -11,6 +11,7 @@
     </thead>
 
     <tbody>
+
       <% for job in @boat.jobs do %>
         <tr>
           <td><%= job.origin %></td>
@@ -33,10 +34,12 @@
   <% if @boat.jobs.count < Job.count then %>
     <%= form_tag(job_add_boat_path(@boat)) do %>
       <%= select_tag(:job, options_from_collection_for_select(@boat.unassigned_jobs, :id, :name)) %>
-      <%= submit_tag 'Assign' %>
+      <%= submit_tag 'Assign', remote: true %>
     <% end %>
   <% else %>
     <p><%= @boat.name %> CANNOT BE ASSIGNED .</p>
   <% end %>
+
+
 
   <p><%=link_to "Back", @boat %></p>
