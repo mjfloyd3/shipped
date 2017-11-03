@@ -5,9 +5,12 @@
     <%= form.text_field :name, id: :job_name %>
   </div>
 
+
+<div id="description"
   <div class="field">
     <%= form.label :Description %>
     <%= form.text_field :description, id: :job_description %>
+
   </div>
 
   <div class="field">
@@ -15,6 +18,7 @@
     <%= form.number_field :containers, id: :job_containers %>
   </div>
 
+<div id="toandfrom">
   <div class="field" >
     <%= form.label :Origin %>
     <%= form.collection_select :origin, Location.all, :name, :name %>
@@ -24,7 +28,7 @@
     <%= form.label :Destination %>
     <%= form.collection_select :destination, Location.all, :name, :name %>
   </div>
-
+</div>
 
   <div class="field" >
     <%= form.label :Cost %>
@@ -34,3 +38,4 @@
     <%= form.submit %>
   </div>
 <% end %>
+

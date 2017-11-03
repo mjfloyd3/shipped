@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       post :job_add
       post :job_remove
       patch :start
+
     end
   end
 

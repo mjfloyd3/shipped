@@ -2,6 +2,7 @@ class BoatsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_boat, only: [:show, :edit, :update, :destroy, :start]
 
+
   # GET /boats
   # GET /boats.json
   def index
@@ -71,6 +72,11 @@ class BoatsController < ApplicationController
         end
       end
     end
+
+    redirect_to action: "Jobs", id: @boat
+  end
+
+
     redirect_to jobs_boat_path(@boat) #, id: @boat
   end
 
@@ -78,6 +84,7 @@ class BoatsController < ApplicationController
     @boat = Boat.find(params[:id])
     @boat.update(started_at: Time.zone.now)
   end
+
 
 
 

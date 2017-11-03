@@ -1,3 +1,5 @@
+
+<div id="boatshow">
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -35,6 +37,8 @@
 </p>
 
 <%= link_to "Start Trip", start_boat_path(@boat), method: :patch, remote: true %>|
+
 <%= link_to 'Edit', edit_boat_path(@boat) %> |
 <%= link_to 'Jobs', jobs_boat_path(@boat) %> |
 <%= link_to 'Back', boats_path %>
+</div>
