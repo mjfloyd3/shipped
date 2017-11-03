@@ -28,6 +28,13 @@
   <% end %>
 </p>
 
+<p>
+  <strong>Time Trip Started:</strong>
+  <span id = "started-at">
+  <%= @boat.started_at %></span>
+</p>
+
+<%= link_to "Start Trip", start_boat_path(@boat), method: :patch, remote: true %>|
 <%= link_to 'Edit', edit_boat_path(@boat) %> |
 <%= link_to 'Jobs', jobs_boat_path(@boat) %> |
 <%= link_to 'Back', boats_path %>

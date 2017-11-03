@@ -9,7 +9,8 @@
       <th>Containers</th>
       <th>Location</th>
       <th>Jobs</th>
-      <th colspan="4"></th>
+      <td>Started Trip at: </td>
+      <th colspan="5"></th>
     </tr>
   </thead>
 
@@ -22,8 +23,11 @@
         <td><%= boat.location %></td>
         <td><%= boat.jobs.count %></td>
 
+
+
+
         <td><%= link_to 'Show', boat %></td>
-        <td><%= link_to 'Edit', edit_boat_path(boat) %></td>
+        <td><%= link_to 'Edit', edit_boat_path(boat) %></td> <br>
 
         <td><%= link_to 'Destroy', boat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

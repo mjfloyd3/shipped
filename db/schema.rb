@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20171101205057) do
     t.string "name"
     t.integer "containers"
     t.string "location"
+    t.integer "started_at"
     t.integer "location_id"
     t.integer "user_id"
     t.datetime "created_at", null: false
