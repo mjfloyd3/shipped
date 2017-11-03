@@ -14,26 +14,36 @@
  *= require_self
  */
 
+@import "normalize";
 
 h1 {
-	font-size: 40px;
+	font-size: 3.9vw;
 	text-align: center;
-	font-family: 'Merriweather', serif;
+	font-family: 'Source Sans Pro', serif;
 	color: #B8424E;
 }
 
 .header_container {
-	border-width: 2px;
+	border-width: 15px;
 	border-style: solid;
 	border-color: SteelBlue;
 	background-color: rgba(255, 255, 255, 0.8);
-	width: 50%;
+	width: 30%;
 	margin: auto;
 }
 
+#h2container {
+	border: solid 3px #B8424E;
+	background-color: rgba(255, 255, 255, 0.8);
+	width: 150px;
+	margin: auto;
+	padding: 0;
+}
 h2 {
-	font-family: "Heebo";
-	font-size: 30px;
+	font-family: "Source Sans Pro";
+	font-size: 2.5vw;
 	text-align: center;
-	color: #fff;
+	color: SteelBlue;
+	text-transform: bold;
+
 }
