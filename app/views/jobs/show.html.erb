@@ -7,17 +7,17 @@
 
 <p>
   <strong>Origin:</strong>
-  <%= @job.origin %>
+  <%= @job.origin%>
 </p>
 
 <p>
   <strong>Destination:</strong>
-  <%= @job.Destination %>
+  <%= @job.destination %>
 </p>
 
 <p>
 	<strong>Containers:</strong>
-	<%= @job.container %>
+	<%= @job.containers %>
 </p>
 
 <p>
@@ -26,10 +26,15 @@
 </p>
 
 <p>
+<<<<<<< HEAD
 	<strong>Boat Assigned:</strong>
 	<%= @job.boat %>
+=======
+	<strong>Boat:</strong>
+	<%= @job.boats.name %>
 </p>
 
 
 <%= link_to 'Edit', edit_job_path(@job) %> |
+<%= link_to "Assign", assign_job_path(@job) %> |
 <%= link_to 'Back', jobs_path %>

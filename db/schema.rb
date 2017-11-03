@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171031184137) do
+ActiveRecord::Schema.define(version: 20171101205057) do
 
   create_table "boats", force: :cascade do |t|
     t.string "name"
@@ -19,25 +19,33 @@ ActiveRecord::Schema.define(version: 20171031184137) do
     t.integer "location_id"
     t.integer "user_id"
     t.integer "job_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["job_id"], name: "index_boats_on_job_id"
     t.index ["location_id"], name: "index_boats_on_location_id"
     t.index ["user_id"], name: "index_boats_on_user_id"
   end
 
+  create_table "boats_jobs", id: false, force: :cascade do |t|
+    t.integer "job_id", null: false
+    t.integer "boat_id", null: false
+    t.index ["job_id", "boat_id"], name: "index_boats_jobs_on_job_id_and_boat_id", unique: true
+  end
+
   create_table "jobs", force: :cascade do |t|
+    t.string "name"
     t.string "description"
     t.string "origin"
     t.string "destination"
     t.integer "cost"
     t.integer "containers"
-    t.string "boat"
-    t.integer "boat_id"
     t.integer "user_id"
+    t.integer "location_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["boat_id"], name: "index_jobs_on_boat_id"
+    t.index ["location_id"], name: "index_jobs_on_location_id"
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 

@@ -3,6 +3,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <%= image_tag @boat.image.url(:medium) %>
+</p>
+
+<p>
   <strong>Name:</strong>
   <%= @boat.name %>
 </p>
@@ -17,6 +21,16 @@
   <%= @boat.location %>
 </p>
 
+<p>
+  <strong>Jobs</strong>
+  <% if !@boat.jobs.empty?  %>
+    <%= @boat.jobs.collect {|c| link_to(c.name, c)}.join(", ").html_safe %>
+  <% else %>
+      Not Assigned to a job.
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_boat_path(@boat) %> |
+<%= link_to 'Jobs', jobs_boat_path(@boat) %> |
 <%= link_to 'Back', boats_path %>
 </div>

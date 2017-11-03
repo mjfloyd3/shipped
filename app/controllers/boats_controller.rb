@@ -14,6 +14,12 @@ class BoatsController < ApplicationController
   def show
   end
 
+  # List jobs a boat is in:
+  def jobs
+    @boat = Boat.find(params[:id])
+    @boats = @boat.jobs
+  end
+
   # GET /boats/new
   def new
     @boat = current_user.boats.build
@@ -24,20 +30,54 @@ class BoatsController < ApplicationController
   end
 
   # POST /boats
-  # POST /boats.json
   def create
     @boat = current_user.boats.build(boat_params)
-
     respond_to do |format|
       if @boat.save
         format.html { redirect_to @boat, notice: 'Boat was successfully created.' }
-        format.json { render :show, status: :created, location: @boat }
       else
         format.html { render :new }
-        format.json { render json: @boat.errors, status: :unprocessable_entity }
       end
     end
   end
+
+  def job_add
+    # convert ids from routing to objects
+    @boat = Boat.find(params[:id])
+    @job = Job.find(params[:job])
+
+    unless @boat.assigned_in?(@job)
+      #adds the job to list of jobs for current boat
+      @boat.jobs << @job
+      flash[:notice] = 'Job was assigned!'
+    else
+      flash[:error] = 'FAILED TO ASSIGN'
+    end
+
+    redirect_to action: "jobs", id: @boat
+  end
+
+  # Removing a boat from a job_id
+  def job_remove
+    @boat = Boat.find(params[:id])
+    job_ids = params[:jobs]
+    if job_ids.any?
+
+      job_ids.each do |course_id|
+        job = Job.find(job_ids)
+        if @boat.assigned_in?(job)
+          logger.info "Removing boat from job #{job.id}"
+          @boat.jobs.delete(job)
+          flash[:notice] = 'Job was deleted'
+        end
+      end
+    end
+    redirect_to action: "Jobs", id: @boat
+  end
+
+
+
+
 
   # PATCH/PUT /boats/1
   # PATCH/PUT /boats/1.json
@@ -63,6 +103,9 @@ class BoatsController < ApplicationController
     end
   end
 
+
+  # taks boat id and single job id and adds the boat to that job
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_boat
@@ -71,6 +114,6 @@ class BoatsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def boat_params
-      params.require(:boat).permit(:name, :containers, :location)
+      params.require(:boat).permit(:name, :containers, :location, :image)
     end
 end

@@ -1,36 +1,48 @@
-
+<div class="field">
+    <%= form.label :Name %>
+    <%= form.text_field :name, id: :job_name %>
+  </div>
 
 
 <%= form_with(model: job, local: true) do |form| %>
 
 <div id="description"
   <div class="field">
+
     <%= form.label :description %>
     <%= form.text_field :description, id: :job_description %></div>
+
+    <%= form.label :Description %>
+    <%= form.text_field :description, id: :job_description %>
+
   </div>
 
   <div class="field">
-    <%= form.label :containers %>
+    <%= form.label :Containers %>
     <%= form.number_field :containers, id: :job_containers %>
   </div>
 
 <div id="toandfrom">
   <div class="field" >
     <%= form.label :Origin %>
-    <%= form.collection_select :location_id, Location.all, :id, :name %>
+    <%= form.collection_select :origin, Location.all, :name, :name %>
   </div>
 
   <div class="field" >
     <%= form.label :Destination %>
-    <%= form.collection_select :location_id, Location.all, :id, :name %>
+    <%= form.collection_select :destination, Location.all, :name, :name %>
   </div>
 </div>
 
+
   <div class="field" >
-    <%= form.label :cost %>
+    <%= form.label :Cost %>
     <%= form.number_field :cost %>
 
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+
+
+

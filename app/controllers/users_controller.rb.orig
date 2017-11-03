@@ -1,34 +1,35 @@
 class UsersController < ApplicationController
-
+<<<<<<< HEAD
 	def new
     @user = User.new
   end
 
  def create
-
+=======
   def new
     @user = User.new
   end
 
   def create
-
+>>>>>>> f1ed09e18c97923f91655190bd511c5c37332a4e
     @user = User.new(user_params)
     if @user.save
       redirect_to boats,
       notice: "Wecome to the site!"
     else
-
+<<<<<<< HEAD
       render “new”
     end
   end
 
  def user_params
-
+=======
       render "new"
     end
   end
 
   def user_params
+>>>>>>> f1ed09e18c97923f91655190bd511c5c37332a4e
     params.require(:user).permit( :email, :password, :password_confirmation)
   end
 end

@@ -1,7 +1,6 @@
 body {
   background-color: #fff;
   color: #333;
-  margin: 33px;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
@@ -22,6 +21,7 @@ p, ol, ul, td {
   width: 100px;
 }
 
+
 pre {
   background-color: #eee;
   padding: 10px;
@@ -32,6 +32,7 @@ pre {
 .mainnav {
   margin: auto;
   text-align: center;
+
 }
 
 .mainnav a:hover {
@@ -76,10 +77,8 @@ a {
 table {
   font-family: "Heebo";
   background-color: #B8424E;
-  border-style: solid;
-  border-width: 3px;
-  border-color: SteelBlue;
-  margin: auto;
+  margin: 0 auto;
+  width: 100%
 }
 
 th {
@@ -88,6 +87,8 @@ th {
   color: #CF9F47;
   font-size: 20px;
   padding: 10px;
+  text-transform: uppercase;
+  text-align: left;
 }
 
 td {
@@ -145,11 +146,13 @@ label {
 form {
   font-family: "Heebo";
   background-color: #CF9F47;
-  width: 30%;
   border-width: 3px solid;
-  border-style: solid;
-  margin: auto;
   padding: 10px;
+}
+
+.new_user {
+text-align: center;
+margin: auto;
 }
 
 #toandfrom {
@@ -162,9 +165,13 @@ form {
 
 .field {
   margin-top: 10px;
+  display: inline-block;
+  padding: 15px;
   text-align: center;
-  padding: 0px;
+
 }
+
+
 
 .actions {
   text-align: center;
@@ -177,8 +184,7 @@ form {
 }
 
 .actions input:hover {
-
-}
+ }
 
 #sharedlinks {
   color: blue;
@@ -188,4 +194,25 @@ input {
   border-style: solid;
   border-width: 1px;
   padding: 10px;
+}
+
+.usernav li {
+  display: inline-block;
+  float: right;
+
+}
+
+.notice {
+  color: green;
+  text-align: center;
+  background-color: #fff;
+  width: 200px;
+}
+
+.alert {
+  color: red;
+  text-align: center;
+  background-color: #fff;
+  width: 250px;
+  margin-left: 500px;
 }
