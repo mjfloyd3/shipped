@@ -63,8 +63,8 @@ class BoatsController < ApplicationController
     if job_ids.any?
 
       job_ids.each do |course_id|
-        job = Job.find(job_id)
-        if @boat.assigned_in?(course)
+        job = Job.find(job_ids)
+        if @boat.assigned_in?(job)
           logger.info "Removing boat from job #{job.id}"
           @boat.jobs.delete(job)
           flash[:notice] = 'Job was deleted'
