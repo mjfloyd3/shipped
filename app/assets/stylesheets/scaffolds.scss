@@ -7,7 +7,7 @@ body {
   background-image: url("cargo.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
-  background-position: fixed; 
+  background-position: fixed;
   }
 
 p, ol, ul, td {
@@ -62,7 +62,7 @@ a {
   padding: 5px 15px 5px 15px;
   background-color: #9A8290;
   font-family: "Heebo";
- 
+
 
   &:visited {
     color: #fff;
@@ -171,8 +171,6 @@ margin: auto;
 
 }
 
-
-
 .actions {
   text-align: center;
 }
@@ -215,4 +213,14 @@ input {
   background-color: #fff;
   width: 250px;
   margin-left: 500px;
+}
+
+// view: jobs/show
+.table1 {
+  font-family: "Heebo";
+  background-color: #B8424E;
+  margin: 0 auto;
+  width: 80%;
+  padding: 15px;
+  margin-bottom: 5px
 }

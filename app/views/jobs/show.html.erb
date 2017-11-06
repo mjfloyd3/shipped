@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+
+<div class="table1">
+
 <p>
   <strong>Description:</strong>
   <%= @job.description %>
@@ -34,6 +37,8 @@
 	<%= @job.boats.name %>
 </p>
 
+
+</div>
 
 <%= link_to 'Edit', edit_job_path(@job) %> |
 <%= link_to "Assign", assign_job_path(@job) %> |

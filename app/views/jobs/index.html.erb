@@ -1,37 +1,43 @@
-<div id="h2container"><h2>Jobs</h2></div>
+<div id="h2container">
+  <h2>Jobs</h2>
+</div>
 
 <% @jobs.each do |job| %>
-    <%= job.id %>.
+  <%= job.id %>.
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Origin</th>
+        <th>Destination</th>
+        <th>Containers</th>
+        <th>Cost</th>
 
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Origin</th>
-                <th>Destination</th>
-                <th>Containers</th>
-                <th>Cost</th>
-                <th>Boat</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= job.name %></td>
+        <td><%= job.description %></td>
+        <td><%= job.origin %></td>
+        <td><%= job.destination %></td>
+        <td><%= job.containers %></td>
+        <td><%= job.cost %></td>
+        <td><%= link_to 'Show', job %></td>
 
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-            <td><%= job.name %></td>
-            <td><%= job.description %></td>
-            <td><%= job.origin %></td>
-            <td><%= job.destination %></td>
-            <td><%= job.containers %></td>
-            <td><%= job.cost %></td>
-            <td>%= job.boats.name %></td>
-            
-        </tr>
-            </tbody>
-                    </table>
+
+        <%= form_tag(model: job, local: true) do |form| %>
+        <td><%= form.collection_select :origin, Location.all, :name, :name %></td>
+        <td><%= link_to 'Assign Boat', @boat %></td>
+        <% end %>
+
+      </tr>
+    </tbody>
+  </table>
 
 <% end  %>
 
-
-<center><%= link_to 'New Job', new_job_path %></center>         
+<center><%= link_to 'New Job', new_job_path %></center>

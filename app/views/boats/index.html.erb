@@ -8,9 +8,8 @@
       <th>Name</th>
       <th>Containers</th>
       <th>Location</th>
-      <th>Jobs</th>
-      <td>Started Trip at: </td>
-      <th colspan="5"></th>
+      <th>Job Count</th>
+      <th>Boat Picture</th>
     </tr>
   </thead>
 
@@ -19,10 +18,12 @@
       <tr>
         <td><%= boat.name %></td>
         <td><%= boat.containers %></td>
-        <td><%= image_tag boat.image %></td>
         <td><%= boat.location %></td>
         <td><%= boat.jobs.count %></td>
-        <td><%= link_to 'Show', boat %></td>
+        <td><%= image_tag boat.image.url(:medium)  %></td>
+
+
+        <td><%= link_to 'Details', boat %></td>
         <td><%= link_to 'Edit', edit_boat_path(boat) %></td> <br>
 
         <td><%= link_to 'Destroy', boat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -34,5 +35,3 @@
 
 <br>
 <div id="new"><%= link_to 'New Boat', new_boat_path %></div>
-
-
